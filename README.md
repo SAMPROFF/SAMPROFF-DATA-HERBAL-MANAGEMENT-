@@ -1,10 +1,16 @@
-# BNS-SAMPROFF Limited Company Website
+# SAMPROFF-DATA-HERBAL-MANAGEMENT-
 
-Official company website for BNS-SAMPROFF Limited Company.
+BNS-SAMPROFF Limited Company website for data, herbal management, donor partnership, and herbal partner presentation.
 
 ## Live Site
 
 https://bns-samproff-co-ltd.netlify.app
+
+## Herbal Partner
+
+Number Five Herbal Clinic is connected as the herbal partner:
+
+https://number-five-herbal-clinic.netlify.app
 
 ## Development
 
