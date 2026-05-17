@@ -41,6 +41,16 @@ https://number-five-herbal-clinic.netlify.app
 - Email: samproff2002@yahoo.co.uk
 - Location: Sunyani, Bono Region, Ghana
 
+## Banking Details
+
+- Bank Name: Banking.stanbic
+- Account Name: BNS-SAMPROFF LTD COMPANY
+- Account Number: 9040014338076
+- Branch: SUNYANI BRANCH
+- SWIFT Code: SBICGHAC
+- Enterprise Direct Opening Hours: 8:00am to 7:00pm
+- Branch Opening Hours: 8:30am - 4:30pm
+
 ## Development
 
 ```bash

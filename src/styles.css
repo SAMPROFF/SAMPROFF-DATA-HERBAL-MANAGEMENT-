@@ -1102,6 +1102,68 @@ a.contact-card:hover {
   box-shadow: 0 16px 30px rgba(10, 42, 30, 0.09);
 }
 
+.banking-panel {
+  display: grid;
+  grid-template-columns: minmax(240px, 0.55fr) minmax(0, 1fr);
+  gap: 28px;
+  margin-top: 28px;
+  padding: 28px;
+  border: 1px solid rgba(14, 70, 52, 0.12);
+  border-radius: 10px;
+  background:
+    linear-gradient(135deg, rgba(8, 47, 36, 0.96), rgba(14, 70, 52, 0.94)),
+    var(--green-950);
+  color: white;
+}
+
+.banking-panel svg {
+  width: 42px;
+  height: 42px;
+  color: var(--gold-300);
+}
+
+.banking-panel h3 {
+  margin-top: 16px;
+  color: white;
+  font-size: 1.45rem;
+}
+
+.banking-panel p {
+  margin: 10px 0 0;
+  color: #dcebdd;
+  line-height: 1.7;
+}
+
+.banking-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 0;
+}
+
+.banking-list div {
+  padding: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.banking-list dt {
+  color: #f8e2a3;
+  font-size: 0.76rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.banking-list dd {
+  margin: 6px 0 0;
+  color: white;
+  font-size: 1rem;
+  font-weight: 900;
+  overflow-wrap: anywhere;
+}
+
 .site-footer {
   display: grid;
   gap: 8px;
@@ -1251,6 +1313,11 @@ a.contact-card:hover {
   }
 
   .contact-header {
+    grid-template-columns: 1fr;
+  }
+
+  .banking-panel,
+  .banking-list {
     grid-template-columns: 1fr;
   }
 

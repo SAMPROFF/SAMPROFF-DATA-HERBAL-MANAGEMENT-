@@ -281,6 +281,16 @@ const whyChoose = [
   "Business-focused solutions",
 ];
 
+const bankingDetails = [
+  ["Bank Name", "Banking.stanbic"],
+  ["Account Name", "BNS-SAMPROFF LTD COMPANY"],
+  ["Account Number", "9040014338076"],
+  ["Branch", "SUNYANI BRANCH"],
+  ["SWIFT Code", "SBICGHAC"],
+  ["Enterprise Direct Opening Hours", "8:00am to 7:00pm"],
+  ["Branch Opening Hours", "8:30am - 4:30pm"],
+];
+
 const engagementTerms = [
   "Custom pricing based on scope and volume",
   "Tax-compliant and open to negotiations",
@@ -791,6 +801,22 @@ function BNSSamproffWebsite() {
                 <MapPin aria-hidden="true" />
                 <span>Sunyani, Bono Region, Ghana</span>
               </div>
+            </div>
+
+            <div className="banking-panel" aria-label="BNS-SAMPROFF banking details">
+              <div>
+                <BadgeDollarSign aria-hidden="true" />
+                <h3>Banking Details</h3>
+                <p>Use these official account details for BNS-SAMPROFF LTD COMPANY payments and business transactions.</p>
+              </div>
+              <dl className="banking-list">
+                {bankingDetails.map(([label, value]) => (
+                  <div key={label}>
+                    <dt>{label}</dt>
+                    <dd>{value}</dd>
+                  </div>
+                ))}
+              </dl>
             </div>
           </div>
         </section>
