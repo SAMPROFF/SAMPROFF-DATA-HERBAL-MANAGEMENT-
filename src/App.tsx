@@ -18,6 +18,7 @@ import {
   BarChart3,
   Database,
   GraduationCap,
+  ExternalLink,
   Menu,
   type LucideIcon,
 } from "lucide-react";
@@ -106,6 +107,7 @@ const serviceHighlights: Array<[LucideIcon, string, string]> = [
 const navItems = [
   ["About", "#about"],
   ["Products", "#products"],
+  ["Herbal Partner", "#herbal-partner"],
   ["Funding", "#funding"],
   ["Partners", "#partners"],
 ];
@@ -239,13 +241,25 @@ function BNSSamproffWebsite() {
             </p>
           </motion.article>
 
-          <motion.article className="research-panel" {...fadeUp} transition={{ duration: 0.58, delay: 0.08 }}>
+          <motion.article
+            id="herbal-partner"
+            className="research-panel"
+            {...fadeUp}
+            transition={{ duration: 0.58, delay: 0.08 }}
+          >
             <Handshake aria-hidden="true" />
-            <h3>Research Partnership</h3>
+            <h3>Our Herbal Partner</h3>
             <p>
               In collaboration with Number Five Herbal Clinic, registered under the Sunyani Municipal Assembly, Bono
               Region, Ghana.
             </p>
+            <a
+              className="partner-link"
+              href="https://number-five-herbal-clinic.netlify.app"
+            >
+              Open Number Five Herbal Clinic
+              <ExternalLink aria-hidden="true" />
+            </a>
           </motion.article>
         </section>
 
