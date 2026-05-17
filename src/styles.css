@@ -119,9 +119,9 @@ svg {
 .desktop-nav {
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 18px;
   color: #415047;
-  font-size: 0.94rem;
+  font-size: 0.9rem;
   font-weight: 800;
 }
 
@@ -645,10 +645,130 @@ h3 {
     #f9ebcf;
 }
 
+.data-services-section {
+  padding-top: 72px;
+}
+
+.data-service-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+  margin-top: 38px;
+}
+
+.data-service-card,
+.industry-card,
+.engagement-panel {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--paper);
+  box-shadow: 0 16px 40px rgba(19, 32, 26, 0.07);
+}
+
+.data-service-card {
+  display: grid;
+  gap: 18px;
+  padding: 28px;
+}
+
+.data-service-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.data-service-head svg {
+  width: 38px;
+  height: 38px;
+  color: var(--green-800);
+}
+
+.data-service-head h3 {
+  font-size: 1.34rem;
+  line-height: 1.18;
+}
+
+.data-service-card > p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.72;
+}
+
+.service-detail {
+  padding: 18px;
+  border: 1px solid rgba(14, 70, 52, 0.1);
+  border-radius: 8px;
+  background: #f8f6ec;
+}
+
+.service-detail strong {
+  display: block;
+  color: var(--green-950);
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.service-detail ul {
+  display: grid;
+  gap: 8px;
+  margin: 12px 0 0;
+  padding-left: 20px;
+  color: #425148;
+}
+
+.pricing-detail {
+  border-color: rgba(165, 101, 22, 0.24);
+  background: #fff5dc;
+}
+
 .service-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 24px;
+}
+
+.industries-section {
+  padding-top: 82px;
+}
+
+.industry-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 36px;
+}
+
+.industry-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  min-height: 102px;
+  padding: 20px;
+}
+
+.industry-card svg {
+  width: 24px;
+  height: 24px;
+  color: var(--green-800);
+}
+
+.industry-card span {
+  color: var(--green-950);
+  font-weight: 900;
+  line-height: 1.35;
+}
+
+.engagement-panel {
+  margin-top: 22px;
+  padding: 26px;
+  background:
+    linear-gradient(135deg, rgba(14, 70, 52, 0.94), rgba(8, 47, 36, 0.98)),
+    var(--green-950);
+}
+
+.engagement-panel h3 {
+  color: white;
 }
 
 .funding-section {
@@ -880,6 +1000,8 @@ a.contact-card:hover {
   .objective-grid,
   .product-grid,
   .service-grid,
+  .data-service-grid,
+  .industry-grid,
   .contact-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -988,6 +1110,8 @@ a.contact-card:hover {
   .objective-grid,
   .product-grid,
   .service-grid,
+  .data-service-grid,
+  .industry-grid,
   .contact-grid {
     grid-template-columns: 1fr;
   }
