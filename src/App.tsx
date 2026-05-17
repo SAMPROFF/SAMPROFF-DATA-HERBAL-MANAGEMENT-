@@ -23,6 +23,15 @@ import {
   ClipboardList,
   Cloud,
   Menu,
+  Palette,
+  Stamp,
+  Presentation,
+  Video,
+  Megaphone,
+  MonitorCog,
+  Laptop,
+  PenTool,
+  BriefcaseBusiness,
   type LucideIcon,
 } from "lucide-react";
 
@@ -137,6 +146,107 @@ const dataServices: Array<{
   },
 ];
 
+const digitalSlides: Array<{
+  title: string;
+  text: string;
+  icon: LucideIcon;
+}> = [
+  {
+    title: "Brand Identity",
+    text: "Logos, stamps, letterheads, business cards, IDs, invoices, labels, flyers, banners, and signboards.",
+    icon: Palette,
+  },
+  {
+    title: "Websites & Hosting",
+    text: "Company websites, herbal clinic websites, NGO sites, school sites, portfolios, and e-commerce setup support.",
+    icon: Globe2,
+  },
+  {
+    title: "Presentations & Video",
+    text: "PowerPoint decks, pitch presentations, pre-show videos, adverts, motion graphics, and social media formats.",
+    icon: Presentation,
+  },
+  {
+    title: "IT Support",
+    text: "Computer repairs, software installation, Windows setup, printer support, networking, CCTV, and cloud services.",
+    icon: MonitorCog,
+  },
+];
+
+const digitalCatalogue: Array<{
+  title: string;
+  summary: string;
+  features: string[];
+  icon: LucideIcon;
+}> = [
+  {
+    title: "Company Logo Design",
+    summary: "Professional logos for companies, herbal clinics, NGOs, schools, churches, startups, and premium brands.",
+    features: ["High-resolution files", "PNG, JPEG, and PDF formats", "Transparent background", "Social media and print ready"],
+    icon: PenTool,
+  },
+  {
+    title: "Official Company Stamp Design",
+    summary: "Company stamps, official seals, signature stamps, herbal clinic stamps, and organization stamps.",
+    features: ["Company name", "Registration and TIN details", "Contact information", "Official branding style"],
+    icon: Stamp,
+  },
+  {
+    title: "Company Letterhead Design",
+    summary: "Professional letterheads for companies, NGOs, herbal clinics, churches, schools, and institutions.",
+    features: ["Logo integration", "Company address", "Contact and registration details", "Professional business layout"],
+    icon: FileText,
+  },
+  {
+    title: "Website Design & Development",
+    summary: "Modern websites for companies, herbal clinics, churches, NGOs, schools, portfolios, and e-commerce projects.",
+    features: ["Mobile responsive", "Contact forms", "Service or product showcase", "Hosting setup support"],
+    icon: Globe2,
+  },
+  {
+    title: "PowerPoint Presentation Design",
+    summary: "Business, investment, church, school, research, donor proposal, and conference presentations.",
+    features: ["Professional slides", "Charts and graphs", "Animation effects", "Infographics and modern templates"],
+    icon: Presentation,
+  },
+  {
+    title: "Video Design & Pre-show Videos",
+    summary: "Intro videos, event pre-shows, wedding slideshows, church announcements, adverts, and product promos.",
+    features: ["HD quality", "Music integration", "Motion graphics", "Animated text"],
+    icon: Video,
+  },
+  {
+    title: "Business Branding Services",
+    summary: "Complete business identity materials for visibility, consistency, customer trust, and marketing growth.",
+    features: ["Business and ID cards", "Invoice and receipt templates", "Product labels", "Posters, banners, and signboards"],
+    icon: BriefcaseBusiness,
+  },
+  {
+    title: "Data Management & Analysis Services",
+    summary: "Data entry, cleaning, analysis, dashboards, KoboCollect setup, research data, and M&E reports.",
+    features: ["Microsoft Excel and Power BI", "KoboToolbox and Google Forms", "SPSS support", "Data visualization tools"],
+    icon: Database,
+  },
+  {
+    title: "Computer Hardware Services",
+    summary: "Computer repairs, troubleshooting, printer installation, networking, CCTV setup, upgrades, and maintenance.",
+    features: ["Desktop computers", "Laptops", "Printers", "Network devices and accessories"],
+    icon: Laptop,
+  },
+  {
+    title: "Computer Software Services",
+    summary: "Software installation, Windows setup, Microsoft Office, antivirus, system optimization, and data backup.",
+    features: ["Driver installation", "System formatting", "Software updates", "Virus removal and user training"],
+    icon: MonitorCog,
+  },
+  {
+    title: "Social Media & Digital Marketing",
+    summary: "Social media poster designs, Facebook adverts, WhatsApp adverts, Instagram branding, and digital flyers.",
+    features: ["Facebook", "WhatsApp", "Instagram", "TikTok and YouTube"],
+    icon: Megaphone,
+  },
+];
+
 const industries = [
   "Agriculture & Nucleus Farming",
   "Mining & Energy",
@@ -145,6 +255,30 @@ const industries = [
   "Government Agencies",
   "Marketing & Retail",
   "Education & Research Institutions",
+];
+
+const targetClients = [
+  "Companies",
+  "NGOs",
+  "Herbal clinics",
+  "Churches",
+  "Schools",
+  "Startups",
+  "Government institutions",
+  "Students",
+  "Small businesses",
+  "Event organizers",
+];
+
+const whyChoose = [
+  "Professional and modern designs",
+  "Fast delivery services",
+  "Affordable pricing",
+  "Customized solutions",
+  "IT, data and branding experience",
+  "Friendly customer support",
+  "High-quality outputs",
+  "Business-focused solutions",
 ];
 
 const engagementTerms = [
@@ -216,7 +350,7 @@ const serviceHighlights: Array<[LucideIcon, string, string]> = [
 const navItems = [
   ["About", "#about"],
   ["Data Services", "#data-services"],
-  ["Products", "#products"],
+  ["IT & Branding", "#digital-services"],
   ["Herbal Partner", "#herbal-partner"],
   ["Industries", "#industries"],
 ];
@@ -272,21 +406,20 @@ function BNSSamproffWebsite() {
               transition={{ duration: 0.7 }}
             >
               <span className="eyebrow">
-                <Database aria-hidden="true" /> Turning Data Into Direction
+                <Database aria-hidden="true" /> Turning Ideas into Professional Digital Identity
               </span>
-              <h1>Smart Data. Smart Decisions.</h1>
+              <h1>Smart Data. Professional Digital Identity.</h1>
               <p>
-                BNS-SAMPROFF LIMITED COMPANY provides professional data cleaning, analysis, visualization, dashboards,
-                reporting, questionnaire design, data collection support, and safe repository setup. The company also
-                supports herbal and agricultural management through organized field data, research partnership, and
-                practical decision-ready reports.
+                BNS-SAMPROFF LIMITED COMPANY provides professional IT support, business branding, website development,
+                graphic design, digital media, data management, dashboards, reporting, presentations, hardware support,
+                software services, and organized herbal and agricultural data solutions from Sunyani, Bono Region, Ghana.
               </p>
               <div className="hero-actions">
+                <a className="button primary" href="#digital-services">
+                  Explore Digital Services
+                </a>
                 <a className="button primary" href="#data-services">
                   View Data Services
-                </a>
-                <a className="button secondary" href="#industries">
-                  Industries We Serve
                 </a>
               </div>
               <div className="hero-metrics" aria-label="Company highlights">
@@ -310,8 +443,8 @@ function BNSSamproffWebsite() {
                 <img src="/images/samproff-company-logo.jpeg" alt="BNS-SAMPROFF Limited Company official logo" />
               </div>
               <Globe2 aria-hidden="true" />
-              <h2>Data, Herbal & Partnership Management</h2>
-              <p>Prepared for institutions, companies, NGOs, farms, clinics, researchers, investors and strategic partners.</p>
+              <h2>IT, Branding, Data & Partnership Management</h2>
+              <p>Prepared for companies, organizations, churches, schools, NGOs, herbal clinics, startups, individuals and strategic partners.</p>
               <div className="prepared-by">
                 <small>Prepared by</small>
                 <strong>Samuel Nkrumah Bonsu</strong>
@@ -334,18 +467,15 @@ function BNSSamproffWebsite() {
           <motion.article className="summary-panel" {...fadeUp}>
             <h2>Executive Summary</h2>
             <p>
-              BNS-SAMPROFF LIMITED COMPANY is a Ghana-based herbal medicine, sustainable agriculture, and data
-              management initiative focused on turning raw information into practical direction for decision-making. The
-              company provides data cleaning, preparation, analysis, visualization, dashboards, professional reporting,
-              questionnaire design, data collection support, and repository setup, while also supporting herbal and
-              agricultural development with organized records and field insights.
+              BNS-SAMPROFF LIMITED COMPANY is a professional IT, branding, digital media, data management, herbal
+              partnership, and business support company providing modern digital solutions for businesses, organizations,
+              churches, schools, NGOs, herbal clinics, startups, and individuals.
             </p>
             <p>
-              With strong experience in the data industry, the company helps organize agricultural and local medicine
-              information into reliable datasets, dashboards, reports, and insights for donors, investors, researchers,
-              clinics, farmers, and development partners. BNS-SAMPROFF also supports university students by involving
-              them in supervised field data collection, research, agricultural monitoring, and reporting activities so
-              they gain practical work experience and earn support for themselves.
+              Our mission is to help businesses and organizations build a strong, professional, and modern digital
+              identity while turning raw information into decision-ready reports, dashboards, and practical direction.
+              We support website development, company branding, graphic design, presentations, video services, computer
+              hardware and software support, data analysis, and organized field data systems.
             </p>
           </motion.article>
 
@@ -412,6 +542,92 @@ function BNSSamproffWebsite() {
                 </motion.article>
               );
             })}
+          </div>
+        </section>
+
+        <section id="digital-services" className="digital-showcase">
+          <div className="section digital-showcase-inner">
+            <div className="section-heading centered">
+              <h2>IT, Branding & Digital Services Catalogue</h2>
+              <p>
+                Professional IT, branding, digital media, document preparation, presentation, website and business
+                support services for modern organizations.
+              </p>
+            </div>
+
+            <div className="animated-slide-row" aria-label="Animated overview of BNS-SAMPROFF services">
+              {digitalSlides.map((slide, index) => {
+                const Icon = slide.icon;
+                return (
+                  <motion.article
+                    className="animated-slide"
+                    key={slide.title}
+                    animate={{ y: [0, -10, 0] }}
+                    transition={{ duration: 4.2, repeat: Infinity, delay: index * 0.28, ease: "easeInOut" }}
+                  >
+                    <Icon aria-hidden="true" />
+                    <h3>{slide.title}</h3>
+                    <p>{slide.text}</p>
+                  </motion.article>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        <section className="section catalogue-section">
+          <div className="section-heading split">
+            <div>
+              <h2>Our Professional Services</h2>
+              <p>
+                From the first logo sketch to the finished website, presentation, data report, software setup, or
+                social media advert, BNS-SAMPROFF gives clients organized and polished digital support.
+              </p>
+            </div>
+            <span>Professional IT & Branding Solutions for Modern Businesses</span>
+          </div>
+
+          <div className="catalogue-grid">
+            {digitalCatalogue.map((service, index) => {
+              const Icon = service.icon;
+              return (
+                <motion.article className="catalogue-card" key={service.title} {...fadeUp} transition={{ duration: 0.5, delay: index * 0.025 }}>
+                  <div className="catalogue-card-head">
+                    <Icon aria-hidden="true" />
+                    <h3>{service.title}</h3>
+                  </div>
+                  <p>{service.summary}</p>
+                  <ul>
+                    {service.features.map((feature) => (
+                      <li key={feature}>{feature}</li>
+                    ))}
+                  </ul>
+                </motion.article>
+              );
+            })}
+          </div>
+        </section>
+
+        <section className="service-band choice-band">
+          <div className="service-grid choice-grid">
+            <motion.article className="service-card choice-card" {...fadeUp}>
+              <CheckCircle2 aria-hidden="true" />
+              <h3>Why Choose BNS-SAMPROFF?</h3>
+              <div className="compact-list">
+                {whyChoose.map((item) => (
+                  <span key={item}>{item}</span>
+                ))}
+              </div>
+            </motion.article>
+            <motion.article className="service-card choice-card" {...fadeUp} transition={{ duration: 0.58, delay: 0.08 }}>
+              <Users aria-hidden="true" />
+              <h3>Our Target Clients</h3>
+              <div className="compact-list">
+                {targetClients.map((item) => (
+                  <span key={item}>{item}</span>
+                ))}
+              </div>
+            </motion.article>
           </div>
         </section>
 
@@ -549,9 +765,9 @@ function BNSSamproffWebsite() {
               <div className="section-heading">
                 <h2>Contact & Partnership Enquiry</h2>
                 <p>
-                  We welcome donors, investors, NGOs, researchers, distributors and strategic partners interested in
-                  data cleaning, analysis, dashboards, professional reports, questionnaire design, agricultural data
-                  systems, and local medicine data organization in Ghana.
+                  Contact us for IT support, business branding, website development, graphic design, presentations,
+                  video adverts, hardware and software support, data cleaning, analysis, dashboards, professional
+                  reports, questionnaire design, agricultural data systems, and local medicine data organization in Ghana.
                 </p>
               </div>
               <div className="stamp-card" aria-label="Official company stamp">
@@ -583,6 +799,7 @@ function BNSSamproffWebsite() {
       <footer className="site-footer">
         <strong>BNS-SAMPROFF LIMITED COMPANY</strong>
         <span>Turning Data Into Direction | Smart Data. Smart Decisions.</span>
+        <span>Turning Herb and Data into Direction | Professional IT & Branding Solutions for Modern Businesses</span>
       </footer>
     </div>
   );
