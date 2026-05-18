@@ -2,6 +2,8 @@
 
 BNS-SAMPROFF Limited Company website for IT support, branding, digital media, website development, graphic design, data cleaning, data analysis, dashboards, professional reporting, questionnaire design, data storage, herbal management, donor partnership, and herbal partner presentation.
 
+The live website uses section buttons and expandable detail panels so visitors can open only the service area they want to view without the page looking crowded.
+
 ## Live Site
 
 https://bns-samproff-co-ltd.netlify.app
@@ -33,6 +35,12 @@ https://number-five-herbal-clinic.netlify.app
 - Computer hardware services
 - Computer software services
 - Social media and digital marketing
+
+## Interface Update
+
+- Section buttons for Overview, Data Services, IT & Branding, Herbal Partner, Industries, and Contact
+- Service details hidden inside expandable panels
+- Very faint symbolic angel-style background artwork for Sachiel, Haniel, Raphael, Gabriel, and Uriel
 
 ## Contact
 

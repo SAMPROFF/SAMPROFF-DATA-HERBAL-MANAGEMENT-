@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import {
   Leaf,
@@ -358,12 +358,23 @@ const serviceHighlights: Array<[LucideIcon, string, string]> = [
 ];
 
 const navItems = [
-  ["About", "#about"],
-  ["Data Services", "#data-services"],
-  ["IT & Branding", "#digital-services"],
-  ["Herbal Partner", "#herbal-partner"],
-  ["Industries", "#industries"],
+  ["Overview", "overview"],
+  ["Data Services", "data"],
+  ["IT & Branding", "digital"],
+  ["Herbal Partner", "herbal"],
+  ["Industries", "industries"],
 ];
+
+const pageButtons = [
+  ["Overview", "overview", "Company profile, mission, project objectives and product areas"],
+  ["Data Services", "data", "Cleaning, analysis, dashboards, reporting and pricing"],
+  ["IT & Branding", "digital", "Logo, websites, video, hardware, software and social media services"],
+  ["Herbal Partner", "herbal", "Number Five Herbal Clinic partner link and wellness areas"],
+  ["Industries", "industries", "Clients, sectors, donors, funding and engagement"],
+  ["Contact", "contact", "Phone, WhatsApp, email, location and banking details"],
+];
+
+const angelSymbols = ["Sachiel", "Haniel", "Raphael", "Gabriel", "Uriel"];
 
 const fadeUp = {
   initial: { opacity: 0, y: 24 },
@@ -373,8 +384,18 @@ const fadeUp = {
 };
 
 function BNSSamproffWebsite() {
+  const [activePage, setActivePage] = useState("overview");
+
   return (
     <div className="site-shell">
+      <div className="angel-watermarks" aria-hidden="true">
+        {angelSymbols.map((name) => (
+          <span key={name}>
+            <i />
+            <b>{name}</b>
+          </span>
+        ))}
+      </div>
       <header className="site-header">
         <div className="header-inner">
           <a className="brand" href="#top" aria-label="BNS-SAMPROFF home">
@@ -388,19 +409,24 @@ function BNSSamproffWebsite() {
           </a>
 
           <nav className="desktop-nav" aria-label="Primary navigation">
-            {navItems.map(([label, href]) => (
-              <a key={label} href={href}>
+            {navItems.map(([label, page]) => (
+              <button
+                key={label}
+                className={activePage === page ? "active" : ""}
+                type="button"
+                onClick={() => setActivePage(page)}
+              >
                 {label}
-              </a>
+              </button>
             ))}
-            <a className="nav-cta" href="#contact">
+            <button className="nav-cta" type="button" onClick={() => setActivePage("contact")}>
               Contact
-            </a>
+            </button>
           </nav>
 
-          <a className="mobile-contact" href="#contact" aria-label="Contact BNS-SAMPROFF">
+          <button className="mobile-contact" type="button" onClick={() => setActivePage("contact")} aria-label="Contact BNS-SAMPROFF">
             <Menu aria-hidden="true" />
-          </a>
+          </button>
         </div>
       </header>
 
@@ -425,12 +451,12 @@ function BNSSamproffWebsite() {
                 software services, and organized herbal and agricultural data solutions from Sunyani, Bono Region, Ghana.
               </p>
               <div className="hero-actions">
-                <a className="button primary" href="#digital-services">
+                <button className="button primary" type="button" onClick={() => setActivePage("digital")}>
                   Explore Digital Services
-                </a>
-                <a className="button primary" href="#data-services">
+                </button>
+                <button className="button primary" type="button" onClick={() => setActivePage("data")}>
                   View Data Services
-                </a>
+                </button>
               </div>
               <div className="hero-metrics" aria-label="Company highlights">
                 {impactStats.slice(0, 3).map(([value, label]) => (
@@ -473,6 +499,22 @@ function BNSSamproffWebsite() {
           ))}
         </section>
 
+        <section className="page-switcher" aria-label="Open BNS-SAMPROFF website sections">
+          {pageButtons.map(([label, page, description]) => (
+            <button
+              key={page}
+              className={activePage === page ? "active" : ""}
+              type="button"
+              onClick={() => setActivePage(page)}
+            >
+              <strong>{label}</strong>
+              <span>{description}</span>
+            </button>
+          ))}
+        </section>
+
+        {activePage === "overview" && (
+        <>
         <section id="about" className="section about-grid">
           <motion.article className="summary-panel" {...fadeUp}>
             <h2>Executive Summary</h2>
@@ -510,7 +552,72 @@ function BNSSamproffWebsite() {
             </a>
           </motion.article>
         </section>
+        <section className="section objectives-section">
+          <div className="section-heading centered">
+            <h2>Project Objectives & Data Services</h2>
+            <p>Click each objective to view it without crowding the page.</p>
+          </div>
+          <div className="objective-grid">
+            {objectives.map((item, index) => (
+              <motion.details className="objective-card detail-card" key={item} {...fadeUp} transition={{ duration: 0.5, delay: index * 0.03 }}>
+                <summary>
+                  <CheckCircle2 aria-hidden="true" />
+                  <span>{item}</span>
+                </summary>
+                <p>This objective supports organized growth, professional delivery, and better decision-making for BNS-SAMPROFF clients and partners.</p>
+              </motion.details>
+            ))}
+          </div>
+        </section>
 
+        <section id="products" className="section">
+          <div className="section-heading split">
+            <div>
+              <h2>Product Areas & Data Solutions</h2>
+              <p>
+                Natural wellness support areas and professional data services for standardized herbal, agricultural, and
+                local medicine development.
+              </p>
+            </div>
+            <span>Smart Data & Natural Herbs, Smart Decisions</span>
+          </div>
+
+          <div className="product-grid">
+            {products.map((item, index) => {
+              const Icon = productIcons[index] || Leaf;
+              return (
+                <motion.details className="product-card detail-card" key={item} {...fadeUp} transition={{ duration: 0.5, delay: index * 0.035 }}>
+                  <summary>
+                    <Icon aria-hidden="true" />
+                    <span>{item}</span>
+                  </summary>
+                  <p>
+                    Developed with attention to research, safety, quality control, professional data organization,
+                    packaging, reporting, and regulatory compliance.
+                  </p>
+                </motion.details>
+              );
+            })}
+          </div>
+        </section>
+
+        <section className="service-band">
+          <div className="service-grid">
+            {serviceHighlights.map(([Icon, title, copy]) => (
+              <motion.details className="service-card detail-card" key={title} {...fadeUp}>
+                <summary>
+                  <Icon aria-hidden="true" />
+                  <span>{title}</span>
+                </summary>
+                <p>{copy}</p>
+              </motion.details>
+            ))}
+          </div>
+        </section>
+        </>
+        )}
+
+        {activePage === "data" && (
         <section id="data-services" className="section data-services-section">
           <div className="section-heading split">
             <div>
@@ -533,28 +640,31 @@ function BNSSamproffWebsite() {
                     <h3>{service.title}</h3>
                   </div>
                   <p>{service.objective}</p>
-                  <div className="service-detail">
-                    <strong>Includes</strong>
+                  <details className="service-detail">
+                    <summary>Open Includes</summary>
                     <ul>
                       {service.includes.map((item) => (
                         <li key={item}>{item}</li>
                       ))}
                     </ul>
-                  </div>
-                  <div className="service-detail pricing-detail">
-                    <strong>Pricing</strong>
+                  </details>
+                  <details className="service-detail pricing-detail">
+                    <summary>Open Pricing</summary>
                     <ul>
                       {service.pricing.map((item) => (
                         <li key={item}>{item}</li>
                       ))}
                     </ul>
-                  </div>
+                  </details>
                 </motion.article>
               );
             })}
           </div>
         </section>
+        )}
 
+        {activePage === "digital" && (
+        <>
         <section id="digital-services" className="digital-showcase">
           <div className="section digital-showcase-inner">
             <div className="section-heading centered">
@@ -607,11 +717,14 @@ function BNSSamproffWebsite() {
                     <h3>{service.title}</h3>
                   </div>
                   <p>{service.summary}</p>
-                  <ul>
-                    {service.features.map((feature) => (
-                      <li key={feature}>{feature}</li>
-                    ))}
-                  </ul>
+                  <details className="service-detail">
+                    <summary>Open Details</summary>
+                    <ul>
+                      {service.features.map((feature) => (
+                        <li key={feature}>{feature}</li>
+                      ))}
+                    </ul>
+                  </details>
                 </motion.article>
               );
             })}
@@ -640,62 +753,11 @@ function BNSSamproffWebsite() {
             </motion.article>
           </div>
         </section>
+        </>
+        )}
 
-        <section className="section objectives-section">
-          <div className="section-heading centered">
-            <h2>Project Objectives & Data Services</h2>
-          </div>
-          <div className="objective-grid">
-            {objectives.map((item, index) => (
-              <motion.article className="objective-card" key={item} {...fadeUp} transition={{ duration: 0.5, delay: index * 0.03 }}>
-                <CheckCircle2 aria-hidden="true" />
-                <p>{item}</p>
-              </motion.article>
-            ))}
-          </div>
-        </section>
-
-        <section id="products" className="section">
-          <div className="section-heading split">
-            <div>
-              <h2>Product Areas & Data Solutions</h2>
-              <p>
-                Natural wellness support areas and professional data services for standardized herbal, agricultural, and
-                local medicine development.
-              </p>
-            </div>
-            <span>Smart Data & Natural Herbs, Smart Decisions</span>
-          </div>
-
-          <div className="product-grid">
-            {products.map((item, index) => {
-              const Icon = productIcons[index] || Leaf;
-              return (
-                <motion.article className="product-card" key={item} {...fadeUp} transition={{ duration: 0.5, delay: index * 0.035 }}>
-                  <Icon aria-hidden="true" />
-                  <h3>{item}</h3>
-                  <p>
-                    Developed with attention to research, safety, quality control, professional data organization,
-                    packaging, reporting, and regulatory compliance.
-                  </p>
-                </motion.article>
-              );
-            })}
-          </div>
-        </section>
-
-        <section className="service-band">
-          <div className="service-grid">
-            {serviceHighlights.map(([Icon, title, copy]) => (
-              <motion.article className="service-card" key={title} {...fadeUp}>
-                <Icon aria-hidden="true" />
-                <h3>{title}</h3>
-                <p>{copy}</p>
-              </motion.article>
-            ))}
-          </div>
-        </section>
-
+        {activePage === "industries" && (
+        <>
         <section id="industries" className="section industries-section">
           <div className="section-heading centered">
             <h2>Industries We Serve</h2>
@@ -768,7 +830,10 @@ function BNSSamproffWebsite() {
             ))}
           </div>
         </section>
+        </>
+        )}
 
+        {activePage === "contact" && (
         <section id="contact" className="contact-section">
           <div className="contact-panel">
             <div className="contact-header">
@@ -820,6 +885,29 @@ function BNSSamproffWebsite() {
             </div>
           </div>
         </section>
+        )}
+
+        {activePage === "herbal" && (
+        <section className="section herbal-page">
+          <div className="section-heading centered">
+            <h2>Our Herbal Partner</h2>
+            <p>Open the partner website or review the wellness connection without crowding the company homepage.</p>
+          </div>
+          <motion.article className="research-panel herbal-feature-panel" {...fadeUp}>
+            <Handshake aria-hidden="true" />
+            <h3>Number Five Herbal Clinic</h3>
+            <p>
+              In collaboration with Number Five Herbal Clinic, registered under the Sunyani Municipal Assembly, Bono
+              Region, Ghana. This partnership connects herbal wellness presentation with BNS-SAMPROFF data,
+              documentation, branding, and business support.
+            </p>
+            <a className="partner-link" href="https://number-five-herbal-clinic.netlify.app">
+              Open Number Five Herbal Clinic
+              <ExternalLink aria-hidden="true" />
+            </a>
+          </motion.article>
+        </section>
+        )}
       </main>
 
       <footer className="site-footer">
