@@ -705,6 +705,81 @@ main,
   width: min(100% - 56px, 1180px);
 }
 
+.ai-demo-section {
+  padding-top: 54px;
+  padding-bottom: 64px;
+}
+
+.ai-demo-showcase {
+  display: grid;
+  grid-template-columns: minmax(0, 0.82fr) minmax(360px, 1.18fr);
+  gap: 30px;
+  align-items: center;
+}
+
+.ai-demo-copy {
+  display: grid;
+  align-content: center;
+  min-height: 430px;
+  padding: 34px;
+  border: 1px solid rgba(14, 70, 52, 0.14);
+  border-radius: 10px;
+  background:
+    linear-gradient(135deg, rgba(8, 47, 36, 0.96), rgba(14, 70, 52, 0.92)),
+    var(--green-950);
+  color: white;
+  box-shadow: 0 24px 50px rgba(19, 32, 26, 0.16);
+}
+
+.ai-demo-copy > span {
+  color: var(--gold-300);
+  font-size: 0.82rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.ai-demo-copy h2 {
+  margin-top: 12px;
+  color: white;
+}
+
+.ai-demo-copy p {
+  margin: 16px 0 0;
+  color: #dcebdd;
+  line-height: 1.78;
+}
+
+.ai-demo-copy .compact-list span {
+  border-color: rgba(255, 255, 255, 0.14);
+  color: white;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.ai-demo-preview {
+  display: block;
+  overflow: hidden;
+  border: 1px solid rgba(14, 70, 52, 0.16);
+  border-radius: 10px;
+  background: var(--paper);
+  box-shadow: 0 24px 55px rgba(19, 32, 26, 0.14);
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.ai-demo-preview:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 32px 70px rgba(19, 32, 26, 0.18);
+}
+
+.ai-demo-preview img {
+  display: block;
+  width: 100%;
+  min-height: 430px;
+  object-fit: cover;
+}
+
 .impact-item {
   padding: 22px;
   border-color: rgba(14, 70, 52, 0.12);
@@ -1585,6 +1660,7 @@ a.contact-card:hover {
   .animated-slide-row,
   .catalogue-grid,
   .data-service-grid,
+  .ai-demo-showcase,
   .industry-grid,
   .contact-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1741,9 +1817,19 @@ a.contact-card:hover {
   .animated-slide-row,
   .catalogue-grid,
   .data-service-grid,
+  .ai-demo-showcase,
   .industry-grid,
   .contact-grid {
     grid-template-columns: 1fr;
+  }
+
+  .ai-demo-copy {
+    min-height: auto;
+    padding: 24px;
+  }
+
+  .ai-demo-preview img {
+    min-height: 260px;
   }
 
   .donor-table {

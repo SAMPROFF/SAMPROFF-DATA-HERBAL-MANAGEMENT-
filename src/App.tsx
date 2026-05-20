@@ -361,6 +361,7 @@ const navItems = [
   ["Overview", "overview"],
   ["Data Services", "data"],
   ["IT & Branding", "digital"],
+  ["AI Demo", "ai-demo"],
   ["Herbal Partner", "herbal"],
   ["Industries", "industries"],
 ];
@@ -369,6 +370,7 @@ const pageButtons = [
   ["Overview", "overview", "Company profile, mission, project objectives and product areas"],
   ["Data Services", "data", "Cleaning, analysis, dashboards, reporting and pricing"],
   ["IT & Branding", "digital", "Logo, websites, video, hardware, software and social media services"],
+  ["AI Trading Demo", "ai-demo", "Example of an advanced website dashboard we can create for clients"],
   ["Herbal Partner", "herbal", "Number Five Herbal Clinic partner link and wellness areas"],
   ["Industries", "industries", "Clients, sectors, donors, funding and engagement"],
   ["Contact", "contact", "Phone, WhatsApp, email, location and banking details"],
@@ -378,6 +380,7 @@ const sectionImages: Record<string, string> = {
   overview: "/images/overview.jpg",
   data: "/images/data-services.jpg",
   digital: "/images/it-branding.jpg",
+  "ai-demo": "/images/ai-trading-demo.png",
   herbal: "/images/herbal-partner.jpg",
   industries: "/images/industries.jpg",
   contact: "/images/contact.jpg",
@@ -553,7 +556,7 @@ function BNSSamproffWebsite() {
         {openPages.length === 0 && (
           <div className="empty-state">
             <h2>Select A Section</h2>
-            <p>Use the buttons above to open Overview, Data Services, IT & Branding, Herbal Partner, Industries, or Contact.</p>
+            <p>Use the buttons above to open Overview, Data Services, IT & Branding, AI Trading Demo, Herbal Partner, Industries, or Contact.</p>
           </div>
         )}
 
@@ -818,6 +821,50 @@ function BNSSamproffWebsite() {
                 ))}
               </div>
             </motion.article>
+          </div>
+        </section>
+        </div>
+        )}
+
+        {openPages.includes("ai-demo") && (
+        <div className="dropdown-panel" id="ai-demo-panel">
+        <div className="dropdown-panel-head">
+          <img src={sectionImages["ai-demo"]} alt="" />
+          <div>
+            <span>Website Example</span>
+            <h2>AI trading demo dashboard for client-ready web projects</h2>
+          </div>
+        </div>
+        <section className="section ai-demo-section">
+          <div className="ai-demo-showcase">
+            <div className="ai-demo-copy">
+              <span>Live Portfolio Example</span>
+              <h2>BNS-SAMPROFF AI Trading Demo</h2>
+              <p>
+                This demo shows the kind of advanced website experience BNS-SAMPROFF can create for clients:
+                modern dashboards, interactive business tools, financial-style layouts, responsive screens, and
+                polished digital products for presentation, training, and service marketing.
+              </p>
+              <div className="compact-list">
+                <span>AI dashboard concept</span>
+                <span>Trading-style interface</span>
+                <span>Client demo website</span>
+                <span>Responsive web app design</span>
+              </div>
+              <a className="partner-link" href="https://bns-samproff-ai-trading-demo.netlify.app/#dashboard" target="_blank" rel="noreferrer">
+                Open AI Trading Demo
+                <ExternalLink aria-hidden="true" />
+              </a>
+            </div>
+            <a
+              className="ai-demo-preview"
+              href="https://bns-samproff-ai-trading-demo.netlify.app/#dashboard"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Open BNS-SAMPROFF AI Trading Demo"
+            >
+              <img src={sectionImages["ai-demo"]} alt="AI trading dashboard website example" />
+            </a>
           </div>
         </section>
         </div>
