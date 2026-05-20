@@ -374,6 +374,15 @@ const pageButtons = [
   ["Contact", "contact", "Phone, WhatsApp, email, location and banking details"],
 ];
 
+const sectionImages: Record<string, string> = {
+  overview: "/images/overview.jpg",
+  data: "/images/data-services.jpg",
+  digital: "/images/it-branding.jpg",
+  herbal: "/images/herbal-partner.jpg",
+  industries: "/images/industries.jpg",
+  contact: "/images/contact.jpg",
+};
+
 const angelSymbols = ["Sachiel", "Haniel", "Raphael", "Gabriel", "Uriel"];
 
 const fadeUp = {
@@ -384,7 +393,20 @@ const fadeUp = {
 };
 
 function BNSSamproffWebsite() {
-  const [activePage, setActivePage] = useState("overview");
+  const [openPages, setOpenPages] = useState<string[]>(["overview"]);
+  const allSectionsOpen = openPages.length === pageButtons.length;
+
+  function togglePage(page: string) {
+    setOpenPages((current) => (current.includes(page) ? current.filter((item) => item !== page) : [...current, page]));
+  }
+
+  function openPage(page: string) {
+    setOpenPages((current) => (current.includes(page) ? current : [...current, page]));
+  }
+
+  function toggleAllSections() {
+    setOpenPages(allSectionsOpen ? [] : pageButtons.map(([, page]) => page));
+  }
 
   return (
     <div className="site-shell">
@@ -412,19 +434,19 @@ function BNSSamproffWebsite() {
             {navItems.map(([label, page]) => (
               <button
                 key={label}
-                className={activePage === page ? "active" : ""}
+                className={openPages.includes(page) ? "active" : ""}
                 type="button"
-                onClick={() => setActivePage(page)}
+                onClick={() => togglePage(page)}
               >
                 {label}
               </button>
             ))}
-            <button className="nav-cta" type="button" onClick={() => setActivePage("contact")}>
+            <button className="nav-cta" type="button" onClick={() => openPage("contact")}>
               Contact
             </button>
           </nav>
 
-          <button className="mobile-contact" type="button" onClick={() => setActivePage("contact")} aria-label="Contact BNS-SAMPROFF">
+          <button className="mobile-contact" type="button" onClick={() => openPage("contact")} aria-label="Contact BNS-SAMPROFF">
             <Menu aria-hidden="true" />
           </button>
         </div>
@@ -451,10 +473,10 @@ function BNSSamproffWebsite() {
                 software services, and organized herbal and agricultural data solutions from Sunyani, Bono Region, Ghana.
               </p>
               <div className="hero-actions">
-                <button className="button primary" type="button" onClick={() => setActivePage("digital")}>
+                <button className="button primary" type="button" onClick={() => openPage("digital")}>
                   Explore Digital Services
                 </button>
-                <button className="button primary" type="button" onClick={() => setActivePage("data")}>
+                <button className="button primary" type="button" onClick={() => openPage("data")}>
                   View Data Services
                 </button>
               </div>
@@ -499,22 +521,51 @@ function BNSSamproffWebsite() {
           ))}
         </section>
 
-        <section className="page-switcher" aria-label="Open BNS-SAMPROFF website sections">
+        <section className="section-opener" aria-label="Open BNS-SAMPROFF website sections">
+          <div className="section-opener-head">
+            <div>
+              <h2>Open Company Sections</h2>
+              <p>Click the buttons to open the details below. You can open one section or open everything at once.</p>
+            </div>
+            <button className="open-all-button" type="button" onClick={toggleAllSections}>
+              {allSectionsOpen ? "Close all sections" : "Open all sections"}
+            </button>
+          </div>
+          <div className="page-switcher">
           {pageButtons.map(([label, page, description]) => (
             <button
               key={page}
-              className={activePage === page ? "active" : ""}
+              className={openPages.includes(page) ? "active" : ""}
               type="button"
-              onClick={() => setActivePage(page)}
+              onClick={() => togglePage(page)}
+              aria-expanded={openPages.includes(page)}
+              aria-controls={`${page}-panel`}
             >
+              <img src={sectionImages[page]} alt="" />
               <strong>{label}</strong>
               <span>{description}</span>
             </button>
           ))}
+          </div>
         </section>
 
-        {activePage === "overview" && (
-        <>
+        <section className="dropdown-stack" aria-label="Opened BNS-SAMPROFF details">
+        {openPages.length === 0 && (
+          <div className="empty-state">
+            <h2>Select A Section</h2>
+            <p>Use the buttons above to open Overview, Data Services, IT & Branding, Herbal Partner, Industries, or Contact.</p>
+          </div>
+        )}
+
+        {openPages.includes("overview") && (
+        <div className="dropdown-panel" id="overview-panel">
+        <div className="dropdown-panel-head">
+          <img src={sectionImages.overview} alt="" />
+          <div>
+            <span>Overview</span>
+            <h2>Company profile, mission, objectives and product areas</h2>
+          </div>
+        </div>
         <section id="about" className="section about-grid">
           <motion.article className="summary-panel" {...fadeUp}>
             <h2>Executive Summary</h2>
@@ -614,10 +665,18 @@ function BNSSamproffWebsite() {
             ))}
           </div>
         </section>
-        </>
+        </div>
         )}
 
-        {activePage === "data" && (
+        {openPages.includes("data") && (
+        <div className="dropdown-panel" id="data-panel">
+        <div className="dropdown-panel-head">
+          <img src={sectionImages.data} alt="" />
+          <div>
+            <span>Data Services</span>
+            <h2>Cleaning, analysis, dashboards, reporting and pricing</h2>
+          </div>
+        </div>
         <section id="data-services" className="section data-services-section">
           <div className="section-heading split">
             <div>
@@ -661,10 +720,18 @@ function BNSSamproffWebsite() {
             })}
           </div>
         </section>
+        </div>
         )}
 
-        {activePage === "digital" && (
-        <>
+        {openPages.includes("digital") && (
+        <div className="dropdown-panel" id="digital-panel">
+        <div className="dropdown-panel-head">
+          <img src={sectionImages.digital} alt="" />
+          <div>
+            <span>IT & Branding</span>
+            <h2>Logos, websites, video, hardware, software and social media services</h2>
+          </div>
+        </div>
         <section id="digital-services" className="digital-showcase">
           <div className="section digital-showcase-inner">
             <div className="section-heading centered">
@@ -753,11 +820,18 @@ function BNSSamproffWebsite() {
             </motion.article>
           </div>
         </section>
-        </>
+        </div>
         )}
 
-        {activePage === "industries" && (
-        <>
+        {openPages.includes("industries") && (
+        <div className="dropdown-panel" id="industries-panel">
+        <div className="dropdown-panel-head">
+          <img src={sectionImages.industries} alt="" />
+          <div>
+            <span>Industries</span>
+            <h2>Clients, sectors, donors, funding and engagement</h2>
+          </div>
+        </div>
         <section id="industries" className="section industries-section">
           <div className="section-heading centered">
             <h2>Industries We Serve</h2>
@@ -830,10 +904,18 @@ function BNSSamproffWebsite() {
             ))}
           </div>
         </section>
-        </>
+        </div>
         )}
 
-        {activePage === "contact" && (
+        {openPages.includes("contact") && (
+        <div className="dropdown-panel" id="contact-panel">
+        <div className="dropdown-panel-head">
+          <img src={sectionImages.contact} alt="" />
+          <div>
+            <span>Contact</span>
+            <h2>Phone, WhatsApp, email, location and banking details</h2>
+          </div>
+        </div>
         <section id="contact" className="contact-section">
           <div className="contact-panel">
             <div className="contact-header">
@@ -885,9 +967,18 @@ function BNSSamproffWebsite() {
             </div>
           </div>
         </section>
+        </div>
         )}
 
-        {activePage === "herbal" && (
+        {openPages.includes("herbal") && (
+        <div className="dropdown-panel" id="herbal-panel">
+        <div className="dropdown-panel-head">
+          <img src={sectionImages.herbal} alt="" />
+          <div>
+            <span>Herbal Partner</span>
+            <h2>Number Five Herbal Clinic partner link and wellness areas</h2>
+          </div>
+        </div>
         <section className="section herbal-page">
           <div className="section-heading centered">
             <h2>Our Herbal Partner</h2>
@@ -907,7 +998,9 @@ function BNSSamproffWebsite() {
             </a>
           </motion.article>
         </section>
+        </div>
         )}
+        </section>
       </main>
 
       <footer className="site-footer">
